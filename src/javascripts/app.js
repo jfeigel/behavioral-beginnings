@@ -59,7 +59,7 @@ $('body').on('activate.bs.scrollspy', function() {
   }
 
   elem.attr('id', '');
-  window.location.hash = hash;
+  window.location.replace('#' + hash);
   elem.attr('id', hash);
 });
 
@@ -78,7 +78,7 @@ $('#navbar-primary a').on('click', function(event) {
     $('html, body').animate({
       scrollTop: $(hash).offset().top - nav_height
     }, 300, function() {
-      window.location.hash = hash;
+      window.location.replace('#' + hash);
     });
   }
 

@@ -59,7 +59,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><img src="/images/logo_icon.png" alt="Behavioral Beginnings"/></a>
+          <a class="navbar-brand" href="#"><img src="images/logo_icon.png" alt="Behavioral Beginnings"/></a>
         </div>
         <div class="collapse navbar-collapse" id="navbarContent">
           <ul class="nav navbar-nav">
@@ -112,25 +112,55 @@
 {% block services %}
   <h2>Services</h2>
   <div>
-    <h5>Offering services from Sarah Flak, M.Ed., BCBA including:</h5>
-    <ul>
-      <li>Consultation and program development</li>
-      <li>1:1 sessions</li>
-      <li>Parent Traning</li>
-      <li>Assessments including ABLLS and VB-MAPP</li>
-      <li>BCaBA supervision</li>
+    {# <h5>Offering services from Sarah Flak, M.Ed., BCBA including:</h5> #}
+    <ul class="services-list">
+      <li>
+        <i class="material-icons">assignment</i>
+        <span>Consultation and Program Development</span>
+      </li>
+      <li>
+        <i class="material-icons">group</i>
+        <span>1:1 Sessions</span>
+      </li>
+      <li>
+        <i class="material-icons">record_voice_over</i>
+        <span>Parent Traning</span>
+      </li>
+      <li>
+        <i class="material-icons">chrome_reader_mode</i>
+        <span>Assessments including ABLLS and VB-MAPP</span>
+      </li>
+      <li>
+        <i class="material-icons">visibility</i>
+        <span>BCaBA Supervision</span>
+      </li>
     </ul>
     <br>
-    <h5>Sarah specializes in:</h5>
-    <ul>
-      <li>"Sibling sessions" - As a person who has a sibling with a disability, Sarah understands how frustrating it can be to get your brother or sister to play with you! Sarah conducts ABA sessions incorporating all of your children teaching play,
-        imitation and conversation. She will also teach typical siblings how to "adapt" play so all children can be involved and successful.</li>
-      <li>Early childhood - Sarah had four years of training at the only ABA based, inclusive preschool in Texas. Her training centered on teaching appropriate language usage, engaging with the environment and socializing with others. Sarah is very skilled
-        at working with students 18 months to five years of age and teaching them the skills they will need to be successful in Kindergarten.</li>
-      <li>Incidental teaching - Sarah has the unique ability to successfully incorporate educational objectives into daily activities and natural settings. She utilizes student's interests and follows their lead to keep motivation high. Using this
-        naturalistic approach to ABA improves generalization and creates more meaningful and varied language.</li>
-      <li>Life Skills - Sarah has been very successful at teaching toileting, bike riding, tooth brushing, dressing and other daily skills with students.</li>
-      <li>Video feedback - Sarah is very skilled at using video to give feedback to both parents and other professionals to ensure consistency of treatment across settings.</li>
+    <h4>Sarah specializes in:</h4>
+    <ul class="specialties-list">
+      <li>
+        <span class="title">"Sibling sessions"</span>
+        <p>As a person who has a sibling with a disability, Sarah understands how frustrating it can be to get your brother or sister to play with you! Sarah conducts ABA sessions incorporating all of your children teaching play,
+        imitation and conversation. She will also teach typical siblings how to "adapt" play so all children can be involved and successful.</p>
+      </li>
+      <li>
+        <span class="title">Early childhood</span>
+        <p>Sarah had four years of training at the only ABA based, inclusive preschool in Texas. Her training centered on teaching appropriate language usage, engaging with the environment and socializing with others. Sarah is very skilled
+        at working with students 18 months to five years of age and teaching them the skills they will need to be successful in Kindergarten.</p>
+      </li>
+      <li>
+        <span class="title">Incidental teaching</span>
+        <p>Sarah has the unique ability to successfully incorporate educational objectives into daily activities and natural settings. She utilizes student's interests and follows their lead to keep motivation high. Using this
+        naturalistic approach to ABA improves generalization and creates more meaningful and varied language.</p>
+      </li>
+      <li>
+        <span class="title">Life Skills</span>
+        <p>Sarah has been very successful at teaching toileting, bike riding, tooth brushing, dressing and other daily skills with students.</p>
+      </li>
+      <li>
+        <span class="title">Video feedback</span>
+        <p>Sarah is very skilled at using video to give feedback to both parents and other professionals to ensure consistency of treatment across settings.</p>
+      </li>
     </ul>
   </div>
 {% endblock %}
@@ -140,9 +170,10 @@
   <div class="row">
     <div class="col-md-4">
       <div class="panel panel-default">
+        <div class="panel-background"></div>
         <div class="panel-body">
           <div class="rounded-circle">
-            <span>&quot;</span>
+            <span><i class="fa fa-quote-left"></i></span>
           </div>
           <div class="quote">
             <p>Sarah worked with our son, Dylan, from the 1st day of our home ABA program and we look back now and realize how lucky we were to have found her.</p>
@@ -154,9 +185,26 @@
     </div>
     <div class="col-md-4">
       <div class="panel panel-default">
+        <div class="panel-background"></div>
         <div class="panel-body">
           <div class="rounded-circle">
-            <span>&quot;</span>
+            <span><i class="fa fa-quote-left"></i></span>
+          </div>
+          <div class="quote">
+            <p>Sarah has a unique ability to quickly incorporate environment and people into our son, Danny's, therapy.</p>
+            <p>Allison is our six-year-old daughter. She was very curious about the therapy, asked lots of questions, and sought attention.</p>
+            <p>Sarah turned a potential distraction into a key component of the therapy. Sarah would use Allison to model behaviors for Daniel, which accelerated his growth tremendously.</p>
+            <p>Allison enjoyed helping Sarah and Danny and still uses the techniques she learned from Sarah when interacting with her brother.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-background"></div>
+        <div class="panel-body">
+          <div class="rounded-circle">
+            <span><i class="fa fa-quote-left"></i></span>
           </div>
           <div class="quote">
             <p>Some people have a tremendous love for children.</p>
@@ -168,20 +216,6 @@
         </div>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="rounded-circle">
-            <span>&quot;</span>
-          </div>
-          <div class="quote">
-            <p>Sarah has a unique ability to quickly incorporate environment and people into our son, Danny's, therapy.</p>
-            <p>Allison is our six-year-old daughter. She was very curious about the therapy, asked lots of questions, and sought attention.</p>
-            <p>Sarah turned a potential distraction into a key component of the therapy. Sarah would use Allison to model behaviors for Daniel, which accelerated his growth tremendously.</p>
-            <p>Allison enjoyed helping Sarah and Danny and still uses the techniques she learned from Sarah when interacting with her brother.</p>
-          </div>
-        </div>
-      </div>
   </div>
 {% endblock %}
 
