@@ -14,34 +14,44 @@ require('bootstrap-material-design');
  **/
 var body = $('body');
 var nav_container = $('.nav-container');
-var nav = $('#navbar-primary');
+var nav1 = $('#navbar-primary');
 var nav2 = $('#navbar-secondary');
 var navbar_content = $('#navbarContent');
 var progress = $('.progress-bar');
-var contact = $('#contact');
 
-var nav_height = $(nav).outerHeight(true);
-var nav_offset = $(nav).offset().top;
-var nav2_height = $(nav2).outerHeight(true);
+var nav1_height = get_outer_height(nav1, true);
+var nav1_offset = $(nav1).offset().top;
+var nav2_height = get_outer_height(nav2, true);
+var nav_height = nav1_height + nav2_height;
 
 /*
  * INIT FUNCTIONS
  **/
 $.material.init();
-pad_body();
-// init_google_maps();
+calculate();
 
-$(nav).resize(pad_body);
+$(window).resize(function() {
+  nav1_height = get_outer_height(nav1, true);
+  nav1_offset = $(nav1).offset().top;
+  nav2_height = get_outer_height(nav2, true);
+  nav_height = nav1_height + nav2_height;
+
+  calculate();
+});
 
 /*
  * EVENTS
  **/
-$(window).on('activate.bs.scrollspy', function(test) {
-  var active_nav = $(nav).find('.nav-link.active');
+$('body').on('activate.bs.scrollspy', function() {
+  var active_nav = $(nav1).find('li.active');
   if (!active_nav.length) {
     return;
   }
-  var hash = $(active_nav).attr('href').substr(1);
+  var link = $(active_nav).find('a');
+  if (!link.length) {
+    return;
+  }
+  var hash = $(link).attr('href').substr(1);
   var elem = $('#' + hash);
 
   if (!elem.length) {
@@ -58,13 +68,7 @@ $(document).on('scroll', function() {
   var ratio = (scroll_top / ($(document).height() - $(window).height())) * 100;
   $(progress).css('width', ratio + '%').attr('aria-valuenow', ratio);
 
-  if (scroll_top > nav_offset) {
-    $(nav_container).addClass('sticky');
-    $(body).css('padding-top', nav_height + nav2_height);
-  } else {
-    $(nav_container).removeClass('sticky');
-    $(body).css('padding-top', '');
-  }
+  calculate();
 });
 
 $('#navbar-primary a').on('click', function(event) {
@@ -86,15 +90,48 @@ $('#navbar-primary a').on('click', function(event) {
 /*
  * FUNCTION DEFINITIONS
  **/
-function pad_body() {
-  $(body).attr('data-offset', nav_height);
-  nav_height = $(nav).outerHeight(true);
-  nav_offset = $(nav).offset().top;
-  // $(body).css('padding-top', nav_height);
+function calc_nav() {
+  nav1_height = get_outer_height(nav1, true);
+  nav1_offset = $(nav1).offset().top;
+  nav2_height = get_outer_height(nav2, true);
+  nav_height = nav1_height + nav2_height;
 }
 
-function init_google_maps() {
-  var contact_width = $(contact).outerWidth(true);
-  var contact_height = $(contact).outerHeight(true);
-  $(contact).find('.background').css('background-image', 'url("https://maps.googleapis.com/maps/api/staticmap?center=Southlake,TX&size=' + contact_width + 'x' + contact_height + '&scale=2&key=AIzaSyARRSeM4bHtBL-h93O5rW9Tn1IkssWBtOc")');
+function pad_body() {
+  $(body).attr('data-offset', nav_height);
+  var scroll_top = $(document).scrollTop();
+
+  if (scroll_top >= nav1_offset) {
+    $(nav_container).addClass('sticky');
+    $(body).css('padding-top', nav_height);
+  } else {
+    $(nav_container).removeClass('sticky');
+    $(body).css('padding-top', '');
+  }
+}
+
+function get_outer_height(elem, withMargin) {
+  if (!elem || !$(elem).length) {
+    return undefined;
+  }
+
+  if (!withMargin) {
+    withMargin = false;
+  }
+
+  return $(elem).is(':visible') ? $(elem).outerHeight(withMargin) : 0;
+}
+
+function calculate() {
+  $(body).attr('data-offset', nav_height);
+  var scroll_top = $(document).scrollTop();
+  var is_sticky = $(nav_container).hasClass('sticky');
+
+  if (scroll_top > nav2_height) {
+    $(nav_container).addClass('sticky');
+    $(body).css('padding-top', nav_height);
+  } else {
+    $(nav_container).removeClass('sticky');
+    $(body).css('padding-top', '');
+  }
 }

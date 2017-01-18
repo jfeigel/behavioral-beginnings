@@ -1,12 +1,18 @@
 .navbar-brand img
   height: 100%
 
-.navbar .navbar-nav > li
-  position: relative
+.navbar .navbar-nav > li,
+.navbar .navbar-nav > li:before,
+.navbar .navbar-nav > li > a
   transition: all 0.3s ease-in-out
 
+  @media (max-width: $screen-xs-max)
+    transition: none
+
+.navbar .navbar-nav > li
+  position: relative
+
   &:before
-    transition: all 0.3s ease-in-out
     content: ""
     position: absolute
     top: 0
@@ -16,14 +22,13 @@
     background-color: $brand-primary
 
   &:hover, &.active
-    a
+    a, a:hover
       color: $white
 
     &:before
       height: 100%
 
   > a
-    transition: all 0.3s ease-in-out
     padding: 2rem
 
 .nav-container
@@ -62,6 +67,9 @@
   margin-bottom: 0
   min-height: initial
   background-color: $gray-dark
+
+  @media (max-width: $screen-xs-max)
+    display: none
 
   .nav
     float: left

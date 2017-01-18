@@ -10,6 +10,9 @@
     left: calc(50% + 70px)
     transform: translate3d(-50%, -50%, 0)
 
+    &, img
+      transition: all 0.3s ease-in-out
+
     p
       margin: 0
       padding: 0
@@ -22,3 +25,38 @@
       position: absolute
       left: -140px
       height: 100%
+
+  > img
+    width: 100%
+
+@media (max-width: $screen-xs-max)
+  .banner .title
+    font-size: 2rem
+    left: calc(50% + 25px)
+
+    img
+      left: -50px
+
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max)
+  .banner .title
+    font-size: 3rem
+    left: calc(50% + 35px)
+
+    img
+      left: -70px
+
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max)
+  .banner .title
+    font-size: 4rem
+    left: calc(50% + 45px)
+
+    img
+      left: -90px
+
+@media (min-width: $screen-lg-min)
+  .banner .title
+    font-size: 5rem
+    left: calc(50% + 60px)
+
+    img
+      left: -120px
