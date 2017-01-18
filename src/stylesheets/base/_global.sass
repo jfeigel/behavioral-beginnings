@@ -1,0 +1,45 @@
+body
+  position: relative
+
+.content-container
+  section
+    padding: 3rem 0
+    // border-top: 1px solid darken($body-bg, 5%)
+
+    &:first-of-type
+      border-top: 0 none
+      // padding-top: 1rem
+
+    &:last-of-type
+      padding-bottom: 0
+
+    h2
+      text-align: center
+      padding-bottom: 3rem
+
+      i.fa
+        font-size: .75em
+        margin-right: .5em
+        // color: darken($white, 10)
+
+.progress
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  z-index: 1031
+  height: 2px
+  background-color: transparent
+  border-radius: 0
+
+  .progress-bar
+    background-color: $brand-tertiary
+
+a[href^="tel:"]
+  display: none
+
+  @media (max-width: $screen-xs-max)
+    display: block
+
+    + span
+      display: none

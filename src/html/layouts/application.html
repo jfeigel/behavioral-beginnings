@@ -1,0 +1,55 @@
+{% from 'macros/helpers.html' import sprite %}
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{{ title }}{% endblock %}</title>
+    <link rel="stylesheet" href="stylesheets/app.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include "shared/app-icons.html" %}
+    {% block head %}{% endblock %}
+  </head>
+  <body data-spy="scroll" data-target="#navbar-primary">
+    {# {% block progress %}{% endblock %} #}
+    {% block navbar %}{% endblock %}
+    {% block banner %}{% endblock %}
+    <div class="content-container">
+      <!-- <section id="about">
+        <div class="container">
+          {% block about %}{% endblock %}
+        </div>
+      </section> -->
+      <section id="services">
+        <div class="container">
+          {% block services %}{% endblock %}
+        </div>
+      </section>
+      <section id="testimonials">
+        <div class="container">
+          {% block testimonials %}{% endblock %}
+        </div>
+      </section>
+      <section id="staff">
+        <div class="container">
+          {% block staff %}{% endblock %}
+        </div>
+      </section>
+      <section id="contact">
+        <div class="background"></div>
+        <div class="container">
+          {% block contact %}{% endblock %}
+        </div>
+      </section>
+      <section id="resources">
+        <div class="background"></div>
+        <div class="container">
+          {% block resources %}{% endblock %}
+        </div>
+      </section>
+    </div>
+    {% block footer %}{% endblock %}
+    {% block javascript %}
+      <script src="javascripts/app.js"></script>
+    {% endblock %}
+  </body>
+</html>
