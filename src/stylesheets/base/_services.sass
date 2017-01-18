@@ -3,18 +3,9 @@
     margin: 1rem 0
     padding: 0
     list-style: none
-    display: flex
-    flex-direction: row
-    justify-content: flex-start
-    flex-wrap: wrap
 
   .services-list > li
-    flex: 0 1 calc((100% / 5) - 1rem)
     padding: 2rem
-    display: flex
-    flex-direction: column
-    justify-content: flex-start
-    align-items: center
     font-family: "Roboto Slab"
     font-weight: 400
     text-align: center
@@ -30,20 +21,13 @@
       background-color: $brand-primary
       border-radius: 50%
 
+    > span
+      display: block
+
   .specialties-list
 
     > li
-      flex: 0 1 calc((100% / 3) - 1rem)
       padding: 2rem
-      display: flex
-      flex-direction: column
-      justify-content: flex-start
-
-      @media (max-width: $screen-md-max)
-        flex: 0 1 calc((100% / 2) - 1rem)
-
-      @media (max-width: $screen-sm-max)
-        flex: 0 1 calc(100% - 1rem)
 
       .title
         font-family: "Roboto Slab"
