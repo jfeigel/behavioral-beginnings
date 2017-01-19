@@ -1,21 +1,21 @@
 .footer
+  position: relative
   margin-top: 6rem
   background-image: linear-gradient(to bottom, $gray, darken($gray, 10%))
   color: $gray-lighter
-  position: relative
 
-  &:before
-    content: ""
-    position: absolute
+  &::before
     display: block
+    position: absolute
     top: 0
-    left: 0
     right: 0
+    left: 0
     height: 2px
-    background-image: url(../images/top-wrap-bg.png)
-    background-position: center
+    background-image: url('../images/top-wrap-bg.png')
     background-repeat: repeat
+    background-position: center
     background-size: 100%
+    content: ''
     z-index: 1032
 
   .container

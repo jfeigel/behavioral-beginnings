@@ -1,113 +1,132 @@
-.navbar-brand img
-  height: 100%
+.navbar-brand
+  img
+    height: 100%
+    margin-right: 1rem
 
-.navbar .navbar-nav > li,
-.navbar .navbar-nav > li:before,
-.navbar .navbar-nav > li > a
-  transition: all 0.3s ease-in-out
+    @media (max-width: $screen-xs-max)
+      display: inline-block
 
-  @media (max-width: $screen-xs-max)
-    transition: none
 
-.navbar .navbar-nav > li
-  position: relative
+  span
+    display: none
+    color: $brand-primary
+    font-family: 'Kreon', cursive
 
-  &:before
-    content: ""
-    position: absolute
-    top: 0
-    left: 0
-    width: 100%
-    height: 0
-    background-color: $brand-primary
+    @media (max-width: $screen-xs-max)
+      display: inline-block
 
-  &:hover, &.active
-    a, a:hover, a:active, a:focus
-      color: $white
 
-    &:before
-      height: 100%
-
-  > a
-    padding: 2rem
+    + span
+      color: $brand-secondary
 
 .nav-container
-  &:before
-    content: ""
-    position: fixed
+  &::before
     display: block
+    position: fixed
     top: 0
-    left: 0
     right: 0
+    left: 0
     height: 2px
-    background-image: url(../images/top-wrap-bg.png)
-    background-position: center
+    background-image: url('../images/top-wrap-bg.png')
     background-repeat: repeat
+    background-position: center
     background-size: 100%
+    content: ''
     z-index: 1032
 
   &.sticky
-    #navbar-primary
+    .navbar-primary
       position: fixed
       top: 0
       left: 0
       width: 100%
+      box-shadow: 0 1px 6px 0 $navbar-shadow
       z-index: 1031
-      box-shadow: 0 1px 6px 0 rgba($black, 0.12)
 
-    #navbar-secondary
+    .navbar-secondary
       display: none
 
-#navbar-primary
-  margin-bottom: 0
-  background-color: $white
-  color: $gray-dark
+.navbar
+  .navbar-nav
+    // sass-lint:disable force-pseudo-nesting
+    > li,
+    > li::before,
+    > li > a
+      transition: height .3s ease-in-out
 
-#navbar-secondary
-  margin-bottom: 0
-  min-height: initial
-  background-color: $gray-dark
+      @media (max-width: $screen-xs-max)
+        transition: none
 
-  @media (max-width: $screen-xs-max)
-    display: none
 
+    > li
+      position: relative
+
+      &::before
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 0
+        background-color: $brand-primary
+        content: ''
+
+        @media (max-width: $screen-xs-max)
+          display: none
+
+
+      &:hover,
+      &.active
+        a,
+        a:hover,
+        a:active,
+        a:focus
+          color: $white
+
+          @media (max-width: $screen-xs-max)
+            color: inherit
+
+
+        &::before
+          height: 100%
+
+  &.navbar-primary
+    margin-bottom: 0
+    background-color: $white
+    color: $gray-dark
+
+  &.navbar-secondary
+    min-height: initial
+    margin-bottom: 0
+    background-color: $gray-dark
+
+    @media (max-width: $screen-xs-max)
+      display: none
+
+
+.navbar-secondary
   .nav
-    float: left
+    display: block
     margin: 0
-    border-left: 1px solid lighten($gray-dark, 15%)
-    border-right: 1px solid lighten($gray-dark, 15%)
+    float: right
+    border-right: 1px solid $navbar-border
+    border-left: 1px solid $navbar-border
 
-    li
+    > li
       float: left
+      border-right: 1px solid $navbar-border
 
-      &.facebook:hover
-        color: $facebook !important
-      &.twitter:hover
-        color: $twitter !important
-      &.google-plus:hover
-        color: $googleplus !important
-      &.linkedin:hover
-        color: $linkedin !important
+      &:last-of-type
+        border-right: 0 none
 
       a
-        color: inherit
         padding: 1.25rem
+        color: inherit
         cursor: pointer
 
-        &:hover, &:focus
-          background-color: inherit
+        &:hover,
+        &:focus,
+        &:active
+          color: $brand-secondary
 
-    + .nav
-      float: right
-
-      > li
-        border-right: 1px solid lighten($gray-dark, 15%)
-
-        &:last-of-type
-          border-right: 0 none
-
-        a:hover
-          color: $brand-secondary !important
-
-        i.fa
-          margin-right: .5rem
+      .fa
+        margin-right: .5rem

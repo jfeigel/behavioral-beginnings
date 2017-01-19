@@ -1,4 +1,4 @@
-#contact
+.contact-container
   position: relative
   padding-bottom: 3rem
 
@@ -8,23 +8,25 @@
     left: 0
     width: 100%
     height: 100%
-    background-image: url("../images/Southlake.png")
-    background-size: cover
+    background-image: url('../images/Southlake.png')
     background-position: center
+    background-size: cover
     opacity: .4
     z-index: -1
     filter: grayscale(100%)
 
-  .contact-details > div[class^="col-"]
-    text-align: center
-    font-weight: 500
+  .contact-details
+    > [class^='col-']
+      font-weight: 500
+      text-align: center
 
-    i.fa
-      margin-right: 1rem
+      .fa
+        margin-right: 1rem
 
-  .row .row
-    margin-left: 0
-    margin-right: 0
+  .row
+    .row
+      margin-right: 0
+      margin-left: 0
 
   form
     margin-top: 3rem
@@ -36,5 +38,6 @@
     &.is-focused
       label
         color: $brand-secondary
+
       .form-control
-        background-image: linear-gradient($brand-secondary, $brand-secondary), linear-gradient(#D2D2D2, #D2D2D2);
+        background-image: linear-gradient($brand-secondary, $brand-secondary), linear-gradient($light-gray, $light-gray)

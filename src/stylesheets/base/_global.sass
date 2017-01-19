@@ -4,7 +4,6 @@ body
 .content-container
   section
     padding: 3rem 0
-    // border-top: 1px solid darken($body-bg, 5%)
 
     &:first-of-type
       border-top: 0 none
@@ -14,33 +13,33 @@ body
       padding-bottom: 0
 
     h2
-      text-align: center
       padding-bottom: 3rem
       font-weight: 600
+      text-align: center
 
-      i.fa
-        font-size: .75em
+      .fa
         margin-right: .5em
-        // color: darken($white, 10)
+        font-size: .75em
 
 .progress
   position: fixed
   top: 0
-  left: 0
   right: 0
-  z-index: 1031
+  left: 0
   height: 2px
-  background-color: transparent
   border-radius: 0
+  background-color: transparent
+  z-index: 1031
 
   .progress-bar
     background-color: $brand-tertiary
 
-a[href^="tel:"]
-  display: none
+a
+  &[href^='tel:']
+    display: none
 
-  @media (max-width: $screen-xs-max)
-    display: block
+    @media (max-width: $screen-xs-max)
+      display: block
 
-    + span
-      display: none
+      + span
+        display: none

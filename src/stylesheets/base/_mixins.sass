@@ -2,30 +2,49 @@
 =font-face($font-family, $file-path, $font-weight: normal, $font-style: normal)
   @font-face
     font-family: $font-family
-    src: url('#{$file-path}.eot')
-    src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'), url('#{$file-path}.woff2') format('woff2'), url('#{$file-path}.woff') format('woff'), url('#{$file-path}.ttf') format('truetype'), url('#{$file-path}.svg##{$font-family}') format('svg')
-    font-weight: $font-weight
     font-style: $font-style
+    font-weight: $font-weight
+    src: url('#{$file-path}.eot'), url('#{$file-path}.eot?#iefix') format('embedded-opentype'), url('#{$file-path}.woff2') format('woff2'), url('#{$file-path}.woff') format('woff'), url('#{$file-path}.ttf') format('truetype'), url('#{$file-path}.svg##{$font-family}') format('svg')
 
   // Chrome for Windows rendering fix: http://www.adtrak.co.uk/blog/font-face-chrome-rendering/
+  // sass-lint:disable no-vendor-prefixes
   @media screen and (-webkit-min-device-pixel-ratio: 0)
     @font-face
       font-family: $font-family
       src: url('#{$file-path}.svg##{$font-family}') format('svg')
 
-.row.auto-clear
-  @media (min-width: $screen-lg-min)
-    .col-lg-1:nth-child(12n+1), .col-lg-2:nth-child(6n+1), .col-lg-3:nth-child(4n+1), .col-lg-4:nth-child(3n+1), .col-lg-6:nth-child(odd)
-      clear: left
 
-  @media (min-width: $screen-md-min) and (max-width: $screen-md-max)
-    .col-md-1:nth-child(12n+1), .col-md-2:nth-child(6n+1), .col-md-3:nth-child(4n+1), .col-md-4:nth-child(3n+1), .col-md-6:nth-child(odd)
-      clear: left
+// sass-lint:disable force-pseudo-nesting, indentation
+.row
+  &.auto-clear
+    @media (min-width: $screen-lg-min)
+      .col-lg-1:nth-child(12n+1),
+      .col-lg-2:nth-child(6n+1),
+      .col-lg-3:nth-child(4n+1),
+      .col-lg-4:nth-child(3n+1),
+      .col-lg-6:nth-child(odd)
+        clear: left
 
-  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max)
-    .col-sm-1:nth-child(12n+1), .col-sm-2:nth-child(6n+1), .col-sm-3:nth-child(4n+1), .col-sm-4:nth-child(3n+1), .col-sm-6:nth-child(odd)
-      clear: left
+    @media (min-width: $screen-md-min) and (max-width: $screen-md-max)
+      .col-md-1:nth-child(12n+1),
+      .col-md-2:nth-child(6n+1),
+      .col-md-3:nth-child(4n+1),
+      .col-md-4:nth-child(3n+1),
+      .col-md-6:nth-child(odd)
+        clear: left
 
-  @media (max-width: $screen-xs-max)
-    .col-xs-1:nth-child(12n+1), .col-xs-2:nth-child(6n+1), .col-xs-3:nth-child(4n+1), .col-xs-4:nth-child(3n+1), .col-xs-6:nth-child(odd)
-      clear: left
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max)
+      .col-sm-1:nth-child(12n+1),
+      .col-sm-2:nth-child(6n+1),
+      .col-sm-3:nth-child(4n+1),
+      .col-sm-4:nth-child(3n+1),
+      .col-sm-6:nth-child(odd)
+        clear: left
+
+    @media (max-width: $screen-xs-max)
+      .col-xs-1:nth-child(12n+1),
+      .col-xs-2:nth-child(6n+1),
+      .col-xs-3:nth-child(4n+1),
+      .col-xs-4:nth-child(3n+1),
+      .col-xs-6:nth-child(odd)
+        clear: left

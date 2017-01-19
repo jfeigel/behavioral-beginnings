@@ -2,16 +2,34 @@
   position: relative
 
   .title
-    color: $brand-primary
-    font-family: 'Kreon', cursive
-    font-size: 6rem
     position: absolute
     top: 15%
     left: calc(50% + 70px)
     transform: translate3d(-50%, -50%, 0)
+    color: $brand-primary
+    font-family: 'Kreon', cursive
+    font-size: 6rem
 
-    &, img
-      transition: all 0.3s ease-in-out
+    @media (max-width: $screen-xs-max)
+      left: calc(50% + 25px)
+      font-size: 2rem
+
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max)
+      left: calc(50% + 35px)
+      font-size: 3rem
+
+    @media (min-width: $screen-md-min) and (max-width: $screen-md-max)
+      left: calc(50% + 45px)
+      font-size: 4rem
+
+    @media (min-width: $screen-lg-min)
+      left: calc(50% + 60px)
+      font-size: 5rem
+
+
+    &,
+    img
+      transition: font-size .3s ease-in-out
 
     p
       margin: 0
@@ -26,37 +44,18 @@
       left: -140px
       height: 100%
 
+      @media (max-width: $screen-xs-max)
+        left: -50px
+
+      @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max)
+        left: -70px
+
+      @media (min-width: $screen-md-min) and (max-width: $screen-md-max)
+        left: -90px
+
+      @media (min-width: $screen-lg-min)
+        left: -120px
+
+
   > img
     width: 100%
-
-@media (max-width: $screen-xs-max)
-  .banner .title
-    font-size: 2rem
-    left: calc(50% + 25px)
-
-    img
-      left: -50px
-
-@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max)
-  .banner .title
-    font-size: 3rem
-    left: calc(50% + 35px)
-
-    img
-      left: -70px
-
-@media (min-width: $screen-md-min) and (max-width: $screen-md-max)
-  .banner .title
-    font-size: 4rem
-    left: calc(50% + 45px)
-
-    img
-      left: -90px
-
-@media (min-width: $screen-lg-min)
-  .banner .title
-    font-size: 5rem
-    left: calc(50% + 60px)
-
-    img
-      left: -120px

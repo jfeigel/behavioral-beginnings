@@ -19,6 +19,7 @@ var nav2 = $('#navbar-secondary');
 var navbar_content = $('#navbarContent');
 var progress = $('.progress-bar');
 
+var window_width = $(window).width();
 var nav1_height = get_outer_height(nav1, true);
 var nav1_offset = $(nav1).offset().top;
 var nav2_height = get_outer_height(nav2, true);
@@ -31,6 +32,7 @@ $.material.init();
 calculate();
 
 $(window).resize(function() {
+  window_width = $(window).width();
   nav1_height = get_outer_height(nav1, true);
   nav1_offset = $(nav1).offset().top;
   nav2_height = get_outer_height(nav2, true);
@@ -82,7 +84,7 @@ $('#navbar-primary a').on('click', function(event) {
     });
   }
 
-  if ($(navbar_content).hasClass('show')) {
+  if ($(navbar_content).hasClass('in')) {
     $(navbar_content).collapse('hide');
   }
 });
@@ -90,25 +92,25 @@ $('#navbar-primary a').on('click', function(event) {
 /*
  * FUNCTION DEFINITIONS
  **/
-function calc_nav() {
-  nav1_height = get_outer_height(nav1, true);
-  nav1_offset = $(nav1).offset().top;
-  nav2_height = get_outer_height(nav2, true);
-  nav_height = nav1_height + nav2_height;
-}
-
-function pad_body() {
-  $(body).attr('data-offset', nav_height);
-  var scroll_top = $(document).scrollTop();
-
-  if (scroll_top >= nav1_offset) {
-    $(nav_container).addClass('sticky');
-    $(body).css('padding-top', nav_height);
-  } else {
-    $(nav_container).removeClass('sticky');
-    $(body).css('padding-top', '');
-  }
-}
+// function calc_nav() {
+//   nav1_height = get_outer_height(nav1, true);
+//   nav1_offset = $(nav1).offset().top;
+//   nav2_height = get_outer_height(nav2, true);
+//   nav_height = nav1_height + nav2_height;
+// }
+//
+// function pad_body() {
+//   $(body).attr('data-offset', nav_height);
+//   var scroll_top = $(document).scrollTop();
+//
+//   if (scroll_top >= nav1_offset) {
+//     $(nav_container).addClass('sticky');
+//     $(body).css('padding-top', nav_height);
+//   } else {
+//     $(nav_container).removeClass('sticky');
+//     $(body).css('padding-top', '');
+//   }
+// }
 
 function get_outer_height(elem, withMargin) {
   if (!elem || !$(elem).length) {
@@ -127,7 +129,7 @@ function calculate() {
   var scroll_top = $(document).scrollTop();
   var is_sticky = $(nav_container).hasClass('sticky');
 
-  if (scroll_top > nav2_height) {
+  if (scroll_top > nav2_height || window_width <= 767) {
     $(nav_container).addClass('sticky');
     $(body).css('padding-top', nav_height);
   } else {
